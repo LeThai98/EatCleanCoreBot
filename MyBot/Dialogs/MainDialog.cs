@@ -10,6 +10,7 @@ using Microsoft.Bot.Builder.Dialogs.Choices;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
+using MyBot.Dialogs.Operations;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,10 @@ namespace MyBot.Dialogs
 
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
-          
+            AddDialog(new CreateTaskDialog());
+            AddDialog(new ViewTaskDialog());
+            AddDialog(new DeleteTaskDialog());
+
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 IntroStepAsync,
@@ -82,7 +86,25 @@ namespace MyBot.Dialogs
             stepContext.Values["Operation"] = ((FoundChoice)stepContext.Result).Value;
             string operation = (string)stepContext.Values["Operation"];
             await stepContext.Context.SendActivityAsync(MessageFactory.Text("You have selected - " + operation), cancellationToken);
-            return await stepContext.NextAsync(null, cancellationToken);
+
+            if ("Create Task".Equals(operation))
+            {
+                return await stepContext.BeginDialogAsync(nameof(CreateTaskDialog), new User(), cancellationToken);
+            }
+            else if ("View Task".Equals(operation))
+            {
+                return await stepContext.BeginDialogAsync(nameof(ViewTaskDialog), new User(), cancellationToken);
+            }
+            else if ("Delete Task".Equals(operation))
+            {
+                return await stepContext.BeginDialogAsync(nameof(DeleteTaskDialog), new User(), cancellationToken);
+            }
+            else
+            {
+                await stepContext.Context.SendActivityAsync(MessageFactory.Text("User Input not matched."), cancellationToken);
+                return await stepContext.NextAsync(null, cancellationToken);
+            }
+            
 
             // return await stepContext.NextAsync(null, cancellationToken);
         }
