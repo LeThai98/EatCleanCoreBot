@@ -35,10 +35,9 @@ namespace MyBot
             services.AddSingleton<ConversationState>();
 
             // Register LUIS recognizer
-            services.AddSingleton<FlightBookingRecognizer>();
+            services.AddSingleton<TodoLUISRecognizer>();
 
-            // Register the BookingDialog.
-            services.AddSingleton<BookingDialog>();
+           
 
             // The MainDialog that will be run by the bot.
             services.AddSingleton<MainDialog>();

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IOYPhQ4+IVN9flqRKYWFGPrTkOo8OTYWMO31iKE0MHThOv0cVQb9vOfxIm99pkJ/KxpHuQIAeM1IG3ufte9kJQ==",
+  "dgSpecHash": "ihN8YDLmKz67H/ghXakjQ40ae5htYAHWIUsspiVae+6YTbqCXRRNMX+LwrytSNwWpGLmyhVD/QOUj81v651lFw==",
   "success": true,
   "projectFilePath": "C:\\Users\\HongThaiPC\\Desktop\\Practice\\Bot\\MyBot\\MyBot\\MyBot.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\HongThaiPC\\.nuget\\packages\\adaptivecards\\2.7.1\\adaptivecards.2.7.1.nupkg.sha512",
     "C:\\Users\\HongThaiPC\\.nuget\\packages\\adaptiveexpressions\\4.13.2\\adaptiveexpressions.4.13.2.nupkg.sha512",
     "C:\\Users\\HongThaiPC\\.nuget\\packages\\antlr4.runtime.standard\\4.8.0\\antlr4.runtime.standard.4.8.0.nupkg.sha512",
     "C:\\Users\\HongThaiPC\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.1\\microsoft.aspnetcore.jsonpatch.3.1.1.nupkg.sha512",
