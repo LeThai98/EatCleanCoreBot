@@ -7,5 +7,6 @@ namespace MyBot
 {
     public class User
     {
+        public List<string> TasksList = new List<string>();
     }
 }

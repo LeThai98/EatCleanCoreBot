@@ -35,7 +35,7 @@ namespace MyBot.Bots
 
         public override async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
         {
-            // gọi các method đầu tiên của các class con là Welcome vs Main
+            // gọi các method đầu tiên của các class con là Welcome vs Main vs các sub class
             await base.OnTurnAsync(turnContext, cancellationToken);
 
             // Save any state changes that might have occurred during the turn.

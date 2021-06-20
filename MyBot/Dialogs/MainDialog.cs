@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 //
 // Generated with Bot Builder V4 SDK Template for Visual Studio CoreBot v4.13.2
@@ -31,6 +31,7 @@ namespace MyBot.Dialogs
             _luisRecognizer = luisRecognizer;
             Logger = logger;
 
+            // tiến hành khởi tạo các Dialog theo khai báo
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
             AddDialog(new CreateTaskDialog());
@@ -53,7 +54,7 @@ namespace MyBot.Dialogs
             await stepContext.Context.SendActivityAsync(
                  MessageFactory.Text("What operation you would like to perform?"), cancellationToken);
 
-            List<string> operationList = new List<string> { "Create Task", "View Task", "Delete Task" };
+            List<string> operationList = new List<string> { "Nutrition Consulting", "Product Feedback ", "Delete Task" };
             // Create card
             var card = new AdaptiveCard(new AdaptiveSchemaVersion(1, 0))
             {
@@ -89,6 +90,7 @@ namespace MyBot.Dialogs
 
             if ("Create Task".Equals(operation))
             {
+                // khởi tạo 1 đối tượng user và chạy class CreateTaskDialog
                 return await stepContext.BeginDialogAsync(nameof(CreateTaskDialog), new User(), cancellationToken);
             }
             else if ("View Task".Equals(operation))
