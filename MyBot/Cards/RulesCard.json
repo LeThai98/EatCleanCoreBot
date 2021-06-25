@@ -1,0 +1,54 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "Medium",
+      "weight": "Bolder",
+      "text": "Several sources of health care information",
+      "horizontalAlignment": "Center",
+      "color": "Accent"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "Input.Date",
+            "id": "dueDate"
+          },
+          {
+            "type": "Input.Text",
+            "id": "comment",
+            "placeholder": "Add a comment",
+            "isMultiline": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "OK"
+          }
+        ],
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+      },
+      "iconUrl": "https://www.youtube.com/watch?v=qUxDxa3q1R4",
+      "title": "Lucy Wyndham-Read"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Trust and Sources of Health Information",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/766849"
+    },
+    {
+      "type": "Action.ToggleVisibility",
+      "title": "Nobadaddiction",
+      "iconUrl": "https://www.youtube.com/watch?v=0uwBB3WNLW8"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3"
+}

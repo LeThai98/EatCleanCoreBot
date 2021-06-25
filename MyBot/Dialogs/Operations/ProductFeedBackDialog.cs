@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyBot.Dialogs.Operations
 {
-    public class ViewTaskDialog: ComponentDialog
+    public class ProductFeedBackDialog: ComponentDialog
     {
-        public ViewTaskDialog() : base(nameof(ViewTaskDialog))
+        public ProductFeedBackDialog() : base(nameof(ProductFeedBackDialog))
         {
             var waterfallSteps = new WaterfallStep[]
             {

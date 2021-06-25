@@ -35,7 +35,7 @@ namespace MyBot.Dialogs
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
             AddDialog(new CreateTaskDialog());
-            AddDialog(new ViewTaskDialog());
+            AddDialog(new ProductFeedBackDialog());
             AddDialog(new DeleteTaskDialog());
 
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
@@ -54,7 +54,7 @@ namespace MyBot.Dialogs
             await stepContext.Context.SendActivityAsync(
                  MessageFactory.Text("What operation you would like to perform?"), cancellationToken);
 
-            List<string> operationList = new List<string> { "Nutrition Consulting", "Product Feedback ", "Delete Task" };
+            List<string> operationList = new List<string> { "Nutrition Consulting", "Product Feedback", };
             // Create card
             var card = new AdaptiveCard(new AdaptiveSchemaVersion(1, 0))
             {
@@ -65,20 +65,22 @@ namespace MyBot.Dialogs
                     Data = choice,  // This will be a string
                 }).ToList<AdaptiveAction>(),
             };
-            // Prompt
+
+            //Prompt
             return await stepContext.PromptAsync(
              nameof(ChoicePrompt),
-             new PromptOptions{
-                Prompt = (Activity)MessageFactory.Attachment(new Attachment
-                {
-                    ContentType = AdaptiveCard.ContentType,
-                    // Convert the AdaptiveCard to a JObject
-                    Content = JObject.FromObject(card),
-                }),
-                Choices = ChoiceFactory.ToChoices(operationList),
-                // Don't render the choices outside the card
-                Style = ListStyle.None,
-            },
+             new PromptOptions
+             {
+                 Prompt = (Activity)MessageFactory.Attachment(new Attachment
+                 {
+                     ContentType = AdaptiveCard.ContentType,
+                     // Convert the AdaptiveCard to a JObject
+                     Content = JObject.FromObject(card),
+                 }),
+                 Choices = ChoiceFactory.ToChoices(operationList),
+                 // Don't render the choices outside the card
+                 Style = ListStyle.None,
+             },
              cancellationToken);
         }
 
@@ -87,20 +89,31 @@ namespace MyBot.Dialogs
             stepContext.Values["Operation"] = ((FoundChoice)stepContext.Result).Value;
             string operation = (string)stepContext.Values["Operation"];
             await stepContext.Context.SendActivityAsync(MessageFactory.Text("You have selected - " + operation), cancellationToken);
+            
 
-            if ("Create Task".Equals(operation))
+            if ("Nutrition Consulting".Equals(operation))
             {
                 // khởi tạo 1 đối tượng user và chạy class CreateTaskDialog
                 return await stepContext.BeginDialogAsync(nameof(CreateTaskDialog), new User(), cancellationToken);
+               // return await stepContext.ReplaceDialogAsync(nameof(ChoicePrompt), cancellationToken);
+               //while( true)
+               // {
+               //     return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
+               //     {
+               //         Prompt = MessageFactory.Text("Hồng Hạnh.")
+               //     }, cancellationToken);
+
+               //     string x = (string)stepContext.Result;
+               //     if (x == "ok")
+               //         continue;
+
+               // }    
             }
-            else if ("View Task".Equals(operation))
+            else if ("Product Feedback".Equals(operation))
             {
-                return await stepContext.BeginDialogAsync(nameof(ViewTaskDialog), new User(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(ProductFeedBackDialog), new User(), cancellationToken);
             }
-            else if ("Delete Task".Equals(operation))
-            {
-                return await stepContext.BeginDialogAsync(nameof(DeleteTaskDialog), new User(), cancellationToken);
-            }
+           
             else
             {
                 await stepContext.Context.SendActivityAsync(MessageFactory.Text("User Input not matched."), cancellationToken);
