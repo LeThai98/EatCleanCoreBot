@@ -1,0 +1,10 @@
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\bin\Debug\netstandard2.0\MyBotML.Model.deps.json
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\bin\Debug\netstandard2.0\MyBotML.Model.dll
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\bin\Debug\netstandard2.0\MyBotML.Model.pdb
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.csprojAssemblyReference.cache
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.AssemblyInfoInputs.cache
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.AssemblyInfo.cs
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.csproj.CoreCompileInputs.cache
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.dll
+C:\Users\HongThaiPC\Desktop\Practice\Bot\MyBot\MyBotML.Model\obj\Debug\netstandard2.0\MyBotML.Model.pdb

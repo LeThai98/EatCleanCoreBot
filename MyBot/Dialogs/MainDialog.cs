@@ -11,6 +11,7 @@ using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 using MyBot.Dialogs.Operations;
+using MyBot.SentimentBot;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace MyBot.Dialogs
             AddDialog(new CreateTaskDialog());
             AddDialog(new ProductFeedBackDialog());
             AddDialog(new DeleteTaskDialog());
-
+            AddDialog(new PredictSentimentDiaglog());
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 IntroStepAsync,
@@ -111,7 +112,7 @@ namespace MyBot.Dialogs
             }
             else if ("Product Feedback".Equals(operation))
             {
-                return await stepContext.BeginDialogAsync(nameof(ProductFeedBackDialog), new User(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(PredictSentimentDiaglog), new User(), cancellationToken);
             }
            
             else
