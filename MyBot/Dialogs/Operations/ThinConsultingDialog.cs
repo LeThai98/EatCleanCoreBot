@@ -147,7 +147,7 @@ namespace MyBot.Dialogs.Operations
                 tdee = brr * R;
             }
             await stepContext.Context.SendActivityAsync(
-                MessageFactory.Text($"Your TDEE index is:{tdee} calo.If you want to gain weight, you need to eat more calories than this."), cancellationToken);
+                MessageFactory.Text($"Your TDEE index is:{Math.Round(tdee, 2)} calos.If you want to gain weight, you need to eat more calories than this."), cancellationToken);
             await stepContext.Context.SendActivityAsync(
             MessageFactory.Text($"When you maintain a higher calorie intake than this number, you will quickly gain weight. "), cancellationToken);
             return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions
