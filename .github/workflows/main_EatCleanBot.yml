@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'EatCleanBot'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cad7686212ef40cf9db18fa4dd7b5c1f }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9a6bc6647d6a45b5b861e32761e8fdf8 }}
         package: .
