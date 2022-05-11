@@ -10,6 +10,7 @@ namespace MyBotML.ConsoleApp
         static void Main(string[] args)
         {
             // Create single instance of sample data from first line of dataset for model input
+            //
             ModelInput sampleData = new ModelInput()
             {
                 Sentiment_Text = @"I am good",
